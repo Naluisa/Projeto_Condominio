@@ -23,7 +23,11 @@ export default () => {
     const [passwordField, setPasswordField] = useState('');
 
     const handleLoginClick = () => {
+        if(emailField != '' && passwordField != ''){
 
+        }else{
+            alert("Preencha os campos");
+        }
     } 
 
     const handleMessageButtonClick = () => {
