@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 import { Container,
 InputArea,
 CustomButton,
@@ -17,8 +17,20 @@ import LoginInput from '../../components/LoginInput';
 
 export default () => {
 
+    const navigation = useNavigation();
+
     const [emailField, setEmailField] = useState('');
     const [passwordField, setPasswordField] = useState('');
+
+    const handleLoginClick = () => {
+
+    } 
+
+    const handleMessageButtonClick = () => {
+        navigation.reset({
+            routes: [{name: 'Cadastro'}]
+        });
+    }
 
     return(
         <Container>
@@ -40,13 +52,13 @@ export default () => {
                     password={true}
                 />
 
-                <CustomButton>
+                <CustomButton onPress={handleLoginClick}>
                     <CustomButtonText>LOGIN</CustomButtonText>
                 </CustomButton>
 
             </InputArea>
 
-            <LoginMensagemButton>
+            <LoginMensagemButton onPress={handleMessageButtonClick}>
                 <LoginMensagemButtonText>Ainda não possui uma conta?</LoginMensagemButtonText>
                 <LoginMensagemButtonTextBold>Cadastre-se</LoginMensagemButtonTextBold>
             </LoginMensagemButton>
