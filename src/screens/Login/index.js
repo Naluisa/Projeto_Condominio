@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Container,
-InputArea,
-CustomButton,
-CustomButtonText,
-LoginMensagemButton,
-LoginMensagemButtonText,
-LoginMensagemButtonTextBold } from './styles';
+AreaInput,
+BotaoCustomizado,
+TextoBotaoCustomizado,
+BotaoMensagemLogin,
+TextoMensagemBotao,
+TextoNegritoMensagemBotao } from './styles';
 
-import Componente from '../../assets/Componente.svg';
-import EmailIcon from '../../assets/email.svg';
-import LockIcon from '../../assets/lock.svg';
+import Logo from '../../assets/Logo.svg';
+import IconeEmail from '../../assets/email.svg';
+import IconeCadeado from '../../assets/lock.svg';
 
 import LoginInput from '../../components/LoginInput';
 
@@ -19,11 +19,11 @@ export default () => {
 
     const navigation = useNavigation();
 
-    const [emailField, setEmailField] = useState('');
-    const [passwordField, setPasswordField] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
 
     const handleLoginClick = () => {
-        if(emailField != '' && passwordField != ''){
+        if(email != '' && senha != ''){
 
         }else{
             alert("Preencha os campos");
@@ -38,34 +38,34 @@ export default () => {
 
     return(
         <Container>
-            <Componente width="100%" height="160"/>
+            <Logo width="100%" height="160"/>
 
-            <InputArea>
+            <AreaInput>
                 <LoginInput 
-                    IconSvg={EmailIcon}
+                    IconSvg={IconeEmail}
                     placeholder="Digite seu e-mail"
-                    value={emailField}
-                    onChangeText={t=>setEmailField(t)}
+                    value={email}
+                    onChangeText={t=>setEmail(t)}
                 />
 
                 <LoginInput 
-                    IconSvg={LockIcon}
+                    IconSvg={IconeCadeado}
                     placeholder="Digite sua senha"
-                    value={passwordField}
-                    onChangeText={t=>setEmailField(t)}
+                    value={senha}
+                    onChangeText={t=>setSenha(t)}
                     password={true}
                 />
 
-                <CustomButton onPress={handleLoginClick}>
-                    <CustomButtonText>LOGIN</CustomButtonText>
-                </CustomButton>
+                <BotaoCustomizado onPress={handleLoginClick}>
+                    <TextoBotaoCustomizado>LOGIN</TextoBotaoCustomizado>
+                </BotaoCustomizado>
 
-            </InputArea>
+            </AreaInput>
 
-            <LoginMensagemButton onPress={handleMessageButtonClick}>
-                <LoginMensagemButtonText>Ainda não possui uma conta?</LoginMensagemButtonText>
-                <LoginMensagemButtonTextBold>Cadastre-se</LoginMensagemButtonTextBold>
-            </LoginMensagemButton>
+            <BotaoMensagemLogin onPress={handleMessageButtonClick}>
+                <TextoMensagemBotao>Ainda não possui uma conta?</TextoMensagemBotao>
+                <TextoNegritoMensagemBotao>Cadastre-se</TextoNegritoMensagemBotao>
+            </BotaoMensagemLogin>
 
         </Container>
     );

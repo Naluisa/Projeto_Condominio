@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const InputArea = styled.View`
+const AreaInput = styled.View`
     width: 100%;
     height: 60px;
     background-color: #37414B;
@@ -21,7 +21,7 @@ const Input = styled.TextInput`
 
 export default ({IconSvg, placeholder, value, onChangeText, password}) => {
     return(
-        <InputArea>
+        <AreaInput>
             <IconSvg width="24" height="24" fill="white"/>
             <Input
                 placeholder={placeholder}
@@ -30,6 +30,6 @@ export default ({IconSvg, placeholder, value, onChangeText, password}) => {
                 onChangeText={onChangeText}
                 secureTextEntry={password}
             />
-        </InputArea>
+        </AreaInput>
     );
 }

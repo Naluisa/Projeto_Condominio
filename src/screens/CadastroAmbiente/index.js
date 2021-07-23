@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Container,
-InputArea,
-CustomButton,
-CustomButtonText,
-LoginMensagemButton,
-LoginMensagemButtonText,
-LoginMensagemButtonTextBold } from './styles';
+AreaInput,
+BotaoCustomizado,
+TextoBotaoCustomizado,
+BotaoMensagemLogin,
+TextoMensagemBotao,
+TextoNegritoMensagemBotao } from './styles';
 
-import Componente from '../../assets/Componente.svg';
+import Logo from '../../assets/Logo.svg';
 import CapacidadeIcone from '../../assets/capacidade.svg';
 import DescricaoIcone from '../../assets/descricao.svg';
 import PredioIcone from '../../assets/predio.svg';
@@ -20,9 +20,9 @@ export default () => {
 
     const navigation = useNavigation();
 
-    const [nameField, setNameField] = useState('');
-    const [descricaoField, setDescricaoField] = useState('');
-    const [capacidadeField, setCapacidadeField] = useState('');
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [capacidade, setCapacidade] = useState('');
 
     const handleLoginClick = () => {
 
@@ -36,37 +36,37 @@ export default () => {
 
     return(
         <Container>
-            <Componente width="100%" height="160"/>
+            <Logo width="100%" height="160"/>   
 
 
-            <InputArea>
+            <AreaInput>
                 <LoginInput 
                     IconSvg={PredioIcone}
                     placeholder="Nome do Ambiente"
-                    value={nameField}
-                    onChangeText={t=>setNameField(t)}
+                    value={nome}
+                    onChangeText={t=>setNome(t)}
                 />
 
                 <LoginInput 
                     IconSvg={DescricaoIcone}
                     placeholder="Descrição"
-                    value={descricaoField}
-                    onChangeText={t=>setDescricaoField(t)}
+                    value={descricao}
+                    onChangeText={t=>setDescricao(t)}
                 />
 
                 <LoginInput 
                     IconSvg={CapacidadeIcone}
                     placeholder="Capacidade Máxima"
-                    value={capacidadeField}
-                    onChangeText={t=>setCapacidadeField(t)}
+                    value={capacidade}
+                    onChangeText={t=>setCapacidade(t)}
                     password={true}
                 />
 
-                <CustomButton onPress={handleLoginClick}>
-                    <CustomButtonText>CADASTRAR</CustomButtonText>
-                </CustomButton>
+                <BotaoCustomizado onPress={handleLoginClick}>
+                    <TextoBotaoCustomizado>CADASTRAR</TextoBotaoCustomizado>
+                </BotaoCustomizado>
 
-            </InputArea>
+            </AreaInput>
 
             
 

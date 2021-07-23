@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Container,
-InputArea,
-CustomButton,
-CustomButtonText,
-LoginMensagemButton,
-LoginMensagemButtonText,
-LoginMensagemButtonTextBold } from './styles';
+AreaInput,
+BotaoCustomizado,
+TextoBotaoCustomizado,
+BotaoMensagemLogin,
+TextoMensagemBotao,
+TextoNegritoMensagemBotao } from './styles';
 
-import Componente from '../../assets/Componente.svg';
-import EmailIcon from '../../assets/email.svg';
-import LockIcon from '../../assets/lock.svg';
-import PersonIcon from '../../assets/person.svg';
-import HouseIcon from '../../assets/house.svg';
+import Logo from '../../assets/Logo.svg';
+import IconeEmail from '../../assets/email.svg';
+import IconeCadeado from '../../assets/lock.svg';
+import IconePessoa from '../../assets/person.svg';
+import IconeCasa from '../../assets/house.svg';
 
 import LoginInput from '../../components/LoginInput';
 
@@ -21,9 +21,9 @@ export default () => {
 
     const navigation = useNavigation();
 
-    const [nameField, setNameField] = useState('');
-    const [emailField, setEmailField] = useState('');
-    const [passwordField, setPasswordField] = useState('');
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
     const [numberField, setNumberField] = useState('');
 
     const handleLoginClick = () => {
@@ -38,48 +38,48 @@ export default () => {
 
     return(
         <Container>
-            <Componente width="100%" height="160"/>
+            <Logo width="100%" height="160"/>
 
 
-            <InputArea>
+            <AreaInput>
                 <LoginInput 
-                    IconSvg={PersonIcon}
+                    IconSvg={IconePessoa}
                     placeholder="Nome Completo"
-                    value={nameField}
-                    onChangeText={t=>setNameField(t)}
+                    value={nome}
+                    onChangeText={t=>setNome(t)}
                 />
 
                 <LoginInput 
-                    IconSvg={EmailIcon}
+                    IconSvg={IconeEmail}
                     placeholder="Digite seu e-mail"
-                    value={emailField}
-                    onChangeText={t=>setEmailField(t)}
+                    value={email}
+                    onChangeText={t=>setEmail(t)}
                 />
 
                 <LoginInput 
-                    IconSvg={LockIcon}
+                    IconSvg={IconeCadeado}
                     placeholder="Digite sua senha"
-                    value={passwordField}
-                    onChangeText={t=>setPasswordField(t)}
+                    value={senha}
+                    onChangeText={t=>setSenha(t)}
                     password={true}
                 />
                  <LoginInput 
-                    IconSvg={HouseIcon}
+                    IconSvg={IconeCasa}
                     placeholder="Nº Apartamento"
                     value={numberField}
                     onChangeText={t=>setNumberField(t)}
                 />
 
-                <CustomButton onPress={handleLoginClick}>
-                    <CustomButtonText>CADASTRAR</CustomButtonText>
-                </CustomButton>
+                <BotaoCustomizado onPress={handleLoginClick}>
+                    <TextoBotaoCustomizado>CADASTRAR</TextoBotaoCustomizado>
+                </BotaoCustomizado>
 
-            </InputArea>
+            </AreaInput>
 
-            <LoginMensagemButton onPress={handleMessageButtonClick}>
-                <LoginMensagemButtonText>Já possui uma conta?</LoginMensagemButtonText>
-                <LoginMensagemButtonTextBold>Faça Login</LoginMensagemButtonTextBold>
-            </LoginMensagemButton>
+            <BotaoMensagemLogin onPress={handleMessageButtonClick}>
+                <TextoMensagemBotao>Já possui uma conta?</TextoMensagemBotao>
+                <TextoNegritoMensagemBotao>Faça Login</TextoNegritoMensagemBotao>
+            </BotaoMensagemLogin>
 
         </Container>
     );

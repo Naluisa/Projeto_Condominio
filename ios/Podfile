@@ -12,6 +12,8 @@ target 'Condominio' do
     :hermes_enabled => false
   )
 
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+
   target 'CondominioTests' do
     inherit! :complete
     # Pods for testing

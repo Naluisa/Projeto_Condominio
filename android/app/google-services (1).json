@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041838249176",
+    "project_id": "condominio-9de6d",
+    "storage_bucket": "condominio-9de6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041838249176:android:dba942a58fb48e6aa073ad",
+        "android_client_info": {
+          "package_name": "com.condominio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041838249176-db7vdtu4kk8nhvqggdbf374ptmpm7gr4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9PdYbXCrxToJ5iy0i6uZND-WE48p2b2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041838249176-db7vdtu4kk8nhvqggdbf374ptmpm7gr4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

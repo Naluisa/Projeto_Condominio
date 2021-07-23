@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { Container, LoadingIcon } from './styles';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import Componente from '../../assets/Componente.svg';
+import Logo from '../../assets/Logo.svg';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 export default() => {
@@ -22,7 +22,7 @@ export default() => {
     }, []);
     return(
         <Container>
-            <Componente width="100%" height="160"/>
+            <Logo width="100%" height="160"/>
             <LoadingIcon size="large" color="white"/>
         </Container>
     );
