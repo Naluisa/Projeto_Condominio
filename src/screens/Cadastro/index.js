@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
-import { Container,
-AreaInput,
-BotaoCustomizado,
-TextoBotaoCustomizado,
-BotaoMensagemLogin,
-TextoMensagemBotao,
-TextoNegritoMensagemBotao } from './styles';
+import {
+    Container,
+    AreaInput,
+    BotaoCustomizado,
+    TextoBotaoCustomizado,
+    BotaoMensagemLogin,
+    TextoMensagemBotao,
+    TextoNegritoMensagemBotao
+} from './styles';
 
 import Logo from '../../assets/Logo.svg';
 import IconeEmail from '../../assets/email.svg';
@@ -16,6 +18,7 @@ import IconeCasa from '../../assets/house.svg';
 
 import LoginInput from '../../components/LoginInput';
 
+import {auth} from '../../services/config';
 
 export default () => {
 
@@ -27,47 +30,57 @@ export default () => {
     const [numberField, setNumberField] = useState('');
 
     const handleLoginClick = () => {
-
-    } 
-
+        if (email !== '' && senha !== '') {
+            auth.createUserWithEmailAndPassword(email, senha).then(credential => {
+              const user = credential.user;
+              navigation.navigate('MainTab');
+            })
+            .catch(erro => {
+                console.log(erro)
+                console.warn(erro)
+            })
+          } else {
+            console.warn('deu erro');
+          }
+        }
     const handleMessageButtonClick = () => {
         navigation.reset({
-            routes: [{name: 'Login'}]
+            routes: [{ name: 'Login' }]
         });
     }
 
-    return(
+    return (
         <Container>
-            <Logo width="100%" height="160"/>
+            <Logo width="100%" height="160" />
 
 
             <AreaInput>
-                <LoginInput 
+                <LoginInput
                     IconSvg={IconePessoa}
                     placeholder="Nome Completo"
                     value={nome}
-                    onChangeText={t=>setNome(t)}
+                    onChangeText={t => setNome(t)}
                 />
 
-                <LoginInput 
+                <LoginInput
                     IconSvg={IconeEmail}
                     placeholder="Digite seu e-mail"
                     value={email}
-                    onChangeText={t=>setEmail(t)}
+                    onChangeText={t => setEmail(t)}
                 />
 
-                <LoginInput 
+                <LoginInput
                     IconSvg={IconeCadeado}
                     placeholder="Digite sua senha"
                     value={senha}
-                    onChangeText={t=>setSenha(t)}
+                    onChangeText={t => setSenha(t)}
                     password={true}
                 />
-                 <LoginInput 
+                <LoginInput
                     IconSvg={IconeCasa}
                     placeholder="Nº Apartamento"
                     value={numberField}
-                    onChangeText={t=>setNumberField(t)}
+                    onChangeText={t => setNumberField(t)}
                 />
 
                 <BotaoCustomizado onPress={handleLoginClick}>
@@ -84,4 +97,3 @@ export default () => {
         </Container>
     );
 }
-

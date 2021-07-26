@@ -14,6 +14,8 @@ import IconeCadeado from '../../assets/lock.svg';
 
 import LoginInput from '../../components/LoginInput';
 
+import {auth} from '../../services/config';
+
 
 export default () => {
 
@@ -22,9 +24,14 @@ export default () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    const handleLoginClick = () => {
-        if(email != '' && senha != ''){
 
+    const handleLoginClick = () => {
+        if(email !== '' && senha !== ''){
+            auth.signInWithEmailAndPassword(email, senha).then(userCredential => {
+                const user = userCredential.user;
+                console.log(user)
+                navigation.navigate('MainTab');
+              });
         }else{
             alert("Preencha os campos");
         }
