@@ -1,11 +1,16 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Container } from './styles';
+import { Container,
+AreaBotao,
+BotaoSair,
+TextoBotao } from './styles';
 
 export default () => {
     return (
         <Container>
-            <Text>profile</Text>
+            <AreaBotao>
+                <BotaoSair/>
+                <TextoBotao>Sair</TextoBotao>
+            </AreaBotao>
         </Container>
     );
 }

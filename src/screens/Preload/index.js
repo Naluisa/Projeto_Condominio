@@ -5,6 +5,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Logo from '../../assets/Logo.svg';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
+import {auth} from '../../services/config';
+
 export default() => {
 
     const navigation = useNavigation();
@@ -12,6 +14,7 @@ export default() => {
     useEffect(()=>{
         const checkToken = async () => {
             const token = await AsyncStorage.getItem('token');
+            
             if(token){
                 //validar o token
             }else{

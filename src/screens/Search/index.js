@@ -1,11 +1,16 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Container } from './styles';
+import { Container,
+AreaHeader,
+InputPesquisa } from './styles';
 
 export default () => {
     return (
         <Container>
-            <Text>Search</Text>
+            <AreaHeader>
+                <InputPesquisa
+                    placeholder="O que você deseja?"
+                    placeholderTextColor="#FFFFFF"/>
+            </AreaHeader>
         </Container>
     );
 }

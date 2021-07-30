@@ -1,11 +1,33 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Container } from './styles';
+import { Container,
+Area,
+Imagem,
+Info,
+Nome } from './styles';
 
 export default () => {
     return (
         <Container>
-            <Text>Favorites</Text>
+            <Area>
+                <Imagem/>
+                <Info/>
+                <Nome/>
+            </Area>
+            <Area>
+            <Imagem/>
+                <Info/>
+                <Nome/>
+            </Area>
+            <Area>
+            <Imagem/>
+                <Info/>
+                <Nome/>
+            </Area>
+            <Area>
+            <Imagem/>
+                <Info/>
+                <Nome/>
+            </Area>
         </Container>
     );
 }
