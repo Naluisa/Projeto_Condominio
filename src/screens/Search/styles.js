@@ -6,9 +6,15 @@ export const Container = styled.SafeAreaView`
     background-color: #27323D;
     `;
 export const AreaHeader = styled.View`
+    background-color: #373D43;
+    width: 310;
+    height: 32px;
+    border-radius: 30px;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    align-items:center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
 `;
 export const InputPesquisa = styled.TextInput`
     flex: 1;    

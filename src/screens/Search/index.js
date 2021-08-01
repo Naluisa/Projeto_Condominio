@@ -8,7 +8,7 @@ export default () => {
         <Container>
             <AreaHeader>
                 <InputPesquisa
-                    placeholder="O que você deseja?"
+                    placeholder="Busque o nome do Ambiente"
                     placeholderTextColor="#FFFFFF"/>
             </AreaHeader>
         </Container>

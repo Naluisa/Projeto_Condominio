@@ -24,7 +24,7 @@ export default () => {
     const [descricao, setDescricao] = useState('');
     const [capacidade, setCapacidade] = useState('');
 
-    const handleLoginClick = () => {
+    const CadastraAmbiente = () => {
 
     } 
 
@@ -33,11 +33,16 @@ export default () => {
             routes: [{name: 'Login'}]
         });
     }
-
+    function writeUserData(userId, nome, descricao, capacidade) {
+        firebase.database().ref('ambiente/' + userId).set({
+          nome,
+          descricao,
+          capacidade 
+        });
+      }
     return(
         <Container>
             <Logo width="100%" height="160"/>   
-
 
             <AreaInput>
                 <LoginInput 
@@ -62,7 +67,7 @@ export default () => {
                     password={true}
                 />
 
-                <BotaoCustomizado onPress={handleLoginClick}>
+                <BotaoCustomizado onPress={CadastraAmbiente}>
                     <TextoBotaoCustomizado>CADASTRAR</TextoBotaoCustomizado>
                 </BotaoCustomizado>
 

@@ -23,20 +23,8 @@ export default () => {
         <Container>
             <Scroller>  
                 <HeaderArea>
-                    <HeaderTitle numberOfLines={2}>Divirta-se com seus amigos e familiares!!</HeaderTitle>
-                    <SearchButton onPress={() => navigation.navigate('Search')}> 
-                        <SearchIcon  width="26" height="26" fill="#FFFFFF"/>
-                    </SearchButton>
+                    <HeaderTitle numberOfLines={2}>Seja Bem-Vindo! O que você deseja?</HeaderTitle>
                 </HeaderArea>
-
-                <LocationArea>
-                    <LocationInput
-                        placeholder="O que você deseja?"
-                        placeholderTextColor="#FFFFFF"/>
-                    <LocationFinder>
-                        <MyLocationIcon width="24" height="24" fill="#FFFFFF"/>
-                    </LocationFinder>
-                </LocationArea>
 
                 <ListArea>
                     <MenuItem/>
