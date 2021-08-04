@@ -14,6 +14,7 @@ import DescricaoIcone from '../../assets/descricao.svg';
 import PredioIcone from '../../assets/predio.svg';
 
 import LoginInput from '../../components/LoginInput';
+import {firestore, database} from '../../services/config';
 
 
 export default () => {
@@ -25,7 +26,7 @@ export default () => {
     const [capacidade, setCapacidade] = useState('');
 
     const CadastraAmbiente = () => {
-
+        database.firestore().collection('Ambiente').add({nome:nome, descricao:descricao, capacidade:capacidade});
     } 
 
     const handleMessageButtonClick = () => {
@@ -46,21 +47,18 @@ export default () => {
 
             <AreaInput>
                 <LoginInput 
-                    IconSvg={PredioIcone}
                     placeholder="Nome do Ambiente"
                     value={nome}
                     onChangeText={t=>setNome(t)}
                 />
 
                 <LoginInput 
-                    IconSvg={DescricaoIcone}
                     placeholder="Descrição"
                     value={descricao}
                     onChangeText={t=>setDescricao(t)}
                 />
 
                 <LoginInput 
-                    IconSvg={CapacidadeIcone}
                     placeholder="Capacidade Máxima"
                     value={capacidade}
                     onChangeText={t=>setCapacidade(t)}
