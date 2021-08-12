@@ -6,12 +6,14 @@ import Login from '../screens/Login';
 import Cadastro from '../screens/Cadastro';
 import CadastroAmbiente from '../screens/CadastroAmbiente';
 import MainTab from './MainTab';
+import Ambiente from '../screens/Ambiente';
+
 
 const Stack = createStackNavigator();
 
 export default () => (    
     <Stack.Navigator
-        initialRouteName="Preload"
+        initialRouteName="MainTab"
         screenOptions={{
             headerShown: false
         }}
@@ -21,5 +23,6 @@ export default () => (
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="CadastroAmbiente" component={CadastroAmbiente} />
         <Stack.Screen name="MainTab" component={MainTab} />
+        <Stack.Screen name="Ambiente" component={Ambiente} />
     </Stack.Navigator>
 );

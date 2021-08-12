@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
       alignSelf: 'center',
 
     },
+    TextoCapac:{
+      color: 'black',
+      marginBottom: 4,
+
+    },
     buttonIconSeparatorStyle: {
       backgroundColor: 'black',
       width: 1,
@@ -53,7 +58,7 @@ export default ({}) => {
     return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile') }
+        <TouchableOpacity onPress={() => navigation.navigate('Ambiente') }
           style={styles.buttonFacebookStyle}
           activeOpacity={0.5}>
           <Image
@@ -62,6 +67,7 @@ export default ({}) => {
           />
           <View style={styles.buttonIconSeparatorStyle} />
           <Text style={styles.buttonTextStyle}>Visualizar Ambientes</Text>
+
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonFacebookStyle}
