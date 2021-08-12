@@ -8,6 +8,9 @@ export const Container = styled.SafeAreaView`
 export const AreaBotao = styled.View`
     width: 100%;
     padding:40px;
+    align-items: center;
+    justify-content: center;
+
 `;
 export const BotaoSair = styled.TouchableOpacity`
     height: 52px;
@@ -20,4 +23,20 @@ export const BotaoSair = styled.TouchableOpacity`
 export const TextoBotao = styled.Text`
     font-size: 18px;
     color: white;
+
 `;
+export const Title = styled.Text`
+  font-size: 20px;
+  color: white};
+  font-weight: bold;
+  align-self: center;
+  margin-top: 30px;
+`;
+export const Formulario = styled.ScrollView`
+    align-self: stretch;
+    padding: 30px;
+  `;
+  export const CaixaFormulario = styled.ScrollView`
+  margin-vertical: 5px;
+
+  `;
