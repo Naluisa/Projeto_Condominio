@@ -58,7 +58,7 @@ export default ({}) => {
     return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => navigation.navigate('Ambiente') }
+        <TouchableOpacity onPress={() => navigation.navigate('MainTab') }
           style={styles.buttonFacebookStyle}
           activeOpacity={0.5}>
           <Image
@@ -99,6 +99,18 @@ export default ({}) => {
           <View style={styles.buttonIconSeparatorStyle} />
           <Text style={styles.buttonTextStyle}>Visualizar Perfil</Text>
         </TouchableOpacity>
+        
+        <TouchableOpacity onPress={() => navigation.navigate('CadastroAmbiente') }
+          style={styles.buttonFacebookStyle}
+          activeOpacity={0.5}>
+          <Image
+            source={require('../assets/person.jpg')}
+            style={styles.buttonImageIconStyle}
+          />
+          <View style={styles.buttonIconSeparatorStyle} />
+          <Text style={styles.buttonTextStyle}>Cadastro Ambiente</Text>
+        </TouchableOpacity>
+
       </View>
       
     </SafeAreaView> 

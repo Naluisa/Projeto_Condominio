@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
-import { Container,
-AreaInput,
-BotaoCustomizado,
-TextoBotaoCustomizado,
-BotaoMensagemLogin,
-TextoMensagemBotao,
-TextoNegritoMensagemBotao } from './styles';
+import {
+    Container,
+    AreaInput,
+    BotaoCustomizado,
+    TextoBotaoCustomizado,
+} from './styles';
 
 import Logo from '../../assets/Logo.svg';
-import CapacidadeIcone from '../../assets/capacidade.svg';
-import DescricaoIcone from '../../assets/descricao.svg';
-import PredioIcone from '../../assets/predio.svg';
+import IconeEmail from '../../assets/email.svg';
 
 import LoginInput from '../../components/LoginInput';
-import {firestore, database} from '../../services/config';
+import { db } from "../../services/config";
 
 
 export default () => {
@@ -25,43 +22,43 @@ export default () => {
     const [descricao, setDescricao] = useState('');
     const [capacidade, setCapacidade] = useState('');
 
-    const CadastraAmbiente = () => {
-        database.firestore().collection('Ambiente').add({nome:nome, descricao:descricao, capacidade:capacidade});
-    } 
 
-    const handleMessageButtonClick = () => {
-        navigation.reset({
-            routes: [{name: 'Login'}]
-        });
+    const CadastraAmbiente = () => {
+        if (nome !== '' && descricao !== '' && capacidade !== '') {
+            db.collection('Ambiente').add({ nome: nome, descricao: descricao, capacidade: capacidade });
+        } else {
+            alert("Preencha os campos");
+        }
     }
-    function writeUserData(userId, nome, descricao, capacidade) {
-        firebase.database().ref('ambiente/' + userId).set({
-          nome,
-          descricao,
-          capacidade 
-        });
-      }
-    return(
+
+
+    return (
         <Container>
-            <Logo width="100%" height="160"/>   
+            <Logo width="100%" height="160" />
 
             <AreaInput>
-                <LoginInput 
+                <LoginInput
+                    IconSvg={IconeEmail}
+
                     placeholder="Nome do Ambiente"
                     value={nome}
-                    onChangeText={t=>setNome(t)}
+                    onChangeText={t => setNome(t)}
                 />
 
-                <LoginInput 
+                <LoginInput
+                    IconSvg={IconeEmail}
+
                     placeholder="Descrição"
                     value={descricao}
-                    onChangeText={t=>setDescricao(t)}
+                    onChangeText={t => setDescricao(t)}
                 />
 
-                <LoginInput 
+                <LoginInput
+                    IconSvg={IconeEmail}
+
                     placeholder="Capacidade Máxima"
                     value={capacidade}
-                    onChangeText={t=>setCapacidade(t)}
+                    onChangeText={t => setCapacidade(t)}
                     password={true}
                 />
 
@@ -71,7 +68,7 @@ export default () => {
 
             </AreaInput>
 
-            
+
 
         </Container>
     );

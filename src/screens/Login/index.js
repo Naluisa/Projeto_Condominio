@@ -13,6 +13,7 @@ import IconeEmail from '../../assets/email.svg';
 import IconeCadeado from '../../assets/lock.svg';
 
 import LoginInput from '../../components/LoginInput';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {auth} from '../../services/config';
 
@@ -28,10 +29,15 @@ export default () => {
     const handleLoginClick = () => {
         if(email !== '' && senha !== ''){
             auth.signInWithEmailAndPassword(email, senha).then(userCredential => {
+                console.log('userCredential', userCredential)
+                AsyncStorage.setItem('email', email);
+               AsyncStorage.setItem('@SalvaLogin', JSON.stringify(userCredential)).then(()=> {
                 const user = userCredential.user;
                 console.log(user)
                 navigation.navigate('MainTab');
-              });
+               })
+
+            });
         }else{
             alert("Preencha os campos");
         }

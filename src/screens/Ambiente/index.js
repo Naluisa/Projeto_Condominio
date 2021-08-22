@@ -1,30 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Container,
-Scroller,
-HeaderArea,
-HeaderTitle,
-SearchButton,
-LocationArea,
-LocationInput,
-LocationFinder,
-ListArea, Title } from './styles';
+import {
+    Container,
+    Scroller,
+} from './styles';
+import { Text , FlatList} from 'react-native';
+import { db } from '../../services/config';
 
-import MenuItem from '../../components/MenuItem'
-import { nativeViewProps } from 'react-native-gesture-handler/lib/typescript/handlers/NativeViewGestureHandler';
-
+const Ambiente= ({ nome, descricao, lotacao }) => (
+    <>
+      <Nome>{nome}</Nome>
+      <Descricao>{descricao}</Descricao>
+      <Lotacao>{lotacao}</Lotacao>
+    </>
+  );
 export default () => {
 
     const navigation = useNavigation();
+    let listaAmbientes = [];
+    useEffect(() => {
+        db.collection("Ambiente").get().then((ambientes) => {
+            ambientes.forEach((doc) => {
+                console.log(doc.data());
+                listaAmbientes.push(doc.data());
+            });
+            console.log(listaAmbientes);
+        });
+    }, []);
 
     return (
-        <Container>
-            <Scroller>  
-                <ListArea>
-
-                    <MenuItem/>
-                </ListArea>
-            </Scroller>
-        </Container>
+<FlatList
+  data={listaAmbientes}
+  renderItem={({item}) => <Ambiente {...item}/>}
+/>
     );
 }
